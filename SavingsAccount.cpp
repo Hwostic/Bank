@@ -51,7 +51,10 @@ using namespace std;
 
     void SavingsAccount::printInfo() const  
     {
-        cout << "ID: " << id << ", Тип: " << getType()
-            << ", Баланс: " << balance << ", Клиент: " << client->getName()
-            << ", Процентная ставка: " << interestRate << "%";
+        cout << "\n-------------------------" << endl;
+        cout << "ID: " << id << "\nТип: " << getType()
+            << "\nКлиент: " << client->getName()
+            << "\nТип клиента: " << client->getType()
+            << "\nБаланс: " << balance << " руб."
+            << "\nПроцентная ставка: " << interestRate << "%";
     }

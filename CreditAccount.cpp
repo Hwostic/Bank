@@ -52,16 +52,20 @@ bool CreditAccount::withdraw(long long  amount)
 
 void CreditAccount::monthlyUpdate()
 {
-    if (balance < 0) {
-        double commission = -balance * commissionRate / 100;
+    if (balance > 0) {
+        long long commission = creditLimit * commissionRate / 100;
         balance -= commission;
     }
 }
 
 void CreditAccount::printInfo() const
 {
-    cout << "ID: " << id << ", Тип: " << getType()
-        << ", Баланс: " << balance << ", Клиент: " << client->getName()
-        << ", Кредитный лимит: " << creditLimit
-        << ", Комиссия: " << commissionRate << "%";
+    cout << "\n-------------------------" << endl;
+    cout << "ID: " << id << "\nТип: " << getType()
+        << "\nКлиент: " << client->getName()
+        << "\nТип клиента: " << client->getType()
+        << "\nБаланс: " << balance << " руб."
+        << "\nКредитный лимит: " << creditLimit << " руб."
+        << "\nКомиссия: " << commissionRate << "%"
+        << "\nЗадолженность: " << creditLimit - balance << " руб." << endl;
 }

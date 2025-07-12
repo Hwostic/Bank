@@ -99,12 +99,6 @@ void BankSystem::createCreditAccount() {
     }
     clearInput();
 
-    cout << "Введите начальный баланс: ";
-    while (!(cin >> initialBalance)) {
-        cout << "Неверный ввод. Попробуйте снова: ";
-        clearInput();
-    }
-    clearInput();
 
     cout << "Введите кредитный лимит: ";
     while (!(cin >> creditLimit) || creditLimit < 0) {
@@ -112,6 +106,7 @@ void BankSystem::createCreditAccount() {
         clearInput();
     }
     clearInput();
+    initialBalance = creditLimit;
 
     cout << "Введите комиссию за использование кредита (%): ";
     while (!(cin >> commissionRate) || commissionRate < 0) {
@@ -306,11 +301,11 @@ void BankSystem::saveToFile(const string& filename) const {
         file << ++i << ". ФИО/название клиента : " << account->getClient()->getName() << endl;
 
         if (auto savings = dynamic_pointer_cast<SavingsAccount>(account)) {
-            file << ++i << ". Процентная ставка: " << savings->getRate() << endl << endl;// Верно: сохраняем только ставку
+            file << ++i << ". Процентная ставка: " << savings->getRate() << endl << endl;
         }
         else if (auto credit = dynamic_pointer_cast<CreditAccount>(account)) {
-            file << ++i << ". Кредитный лимит: " << credit->getCreditLimit() << endl;  // Верно: лимит
-            file << ++i << ". Комиссия: " << credit->getRate() << endl << endl;// Верно: комиссия
+            file << ++i << ". Кредитный лимит: " << credit->getCreditLimit() << endl; 
+            file << ++i << ". Комиссия: " << credit->getRate() << endl << endl;
         }
         i = 0;
         file << "---------------------------------\n" <<endl;
