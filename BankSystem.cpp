@@ -287,7 +287,7 @@ void BankSystem::saveToFile(const string& filename) const {
     }
 
     // Сохраняем клиентов
- 
+    file << "Количество клиентов: " << clients.size() << endl << endl;
     for (const auto& client : clients) {
         int i = 0;
         file << ++i<< ". Тип клиента: " << client->getType() << endl;
@@ -296,7 +296,7 @@ void BankSystem::saveToFile(const string& filename) const {
     }
 
     // Сохраняем счета
-    file << "Количество клиентов: " << clients.size() << endl << endl;
+   
     file << "---------------------------------\nКоличество счетов: " << accounts.size() << endl;
     for (const auto& account : accounts) {
         int i = 0;
@@ -463,6 +463,8 @@ void BankSystem::loadFromFile(const string& filename) {
             if (id >= nextAccountId) {
                 nextAccountId = id + 1;
             }
+            getline(file, line);
+             getline(file, line);
         }
     }
     catch (const exception& e) {
