@@ -291,8 +291,7 @@ void BankSystem::saveToFile(const string& filename) const {
     }
 
     // Сохраняем счета
-   
-    file << "---------------------------------\nКоличество счетов: " << accounts.size() << endl;
+       file << "---------------------------------\nКоличество счетов: " << accounts.size() << endl;
     for (const auto& account : accounts) {
         int i = 0;
         file << ++i << ". ID счета: " << account->getId() << endl;
