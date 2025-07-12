@@ -280,11 +280,11 @@ void BankSystem::saveToFile(const string& filename) const {
         cerr << "Ошибка открытия файла для записи.\n";
         return;
     }
-
+    int i = 0;
     // Сохраняем клиентов
     file << "Количество клиентов: " << clients.size() << endl << endl;
     for (const auto& client : clients) {
-        int i = 0;
+       
         file << ++i<< ". Тип клиента: " << client->getType() << endl;
         file << "ФИО/название клиента: " << client->getName() << endl << endl;
        
@@ -341,11 +341,11 @@ void BankSystem::loadFromFile(const string& filename) {
                 break;
             }
         }
+        getline(file, line);
 
         for (int i = 0; i < clientCount; ++i) {
             string type, name;
 
-                   
             // Чтение типа клиента
             if (!getline(file, line)) throw runtime_error("Ошибка чтения типа клиента");
             size_t pos = line.find(": ");
