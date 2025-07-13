@@ -34,10 +34,11 @@ int main()
         cout << "4. Пополнить счет" << endl;
         cout << "5. Снять средства" << endl;
         cout << "6. Просмотреть все счета" << endl;
-        cout << "7. Месячное обновление" << endl;
-        cout << "8. Найти счета клиента" << endl;
-        cout << "9. Сохранить данные в файл" << endl;
-        cout << "10. Загрузить данные из файла" << endl;
+        cout << "7. Просмотреть всех клиентов" << endl;
+        cout << "8. Месячное обновление" << endl;
+        cout << "9. Найти счета клиента" << endl;
+        cout << "10. Сохранить данные в файл" << endl;
+        cout << "11. Загрузить данные из файла" << endl;
         cout << "0. Выход" << endl << endl;
         cout << "Выберите действие: ";
 
@@ -65,15 +66,18 @@ int main()
             bank.listAllAccounts();
             break;
         case 7:
-            bank.monthlyUpdate();
+            bank.listClients();
             break;
         case 8:
-            bank.findClientAccounts();
+            bank.monthlyUpdate();
             break;
         case 9:
-            bank.saveToFile("bank_data.txt");
+            bank.findClientAccounts();
             break;
         case 10:
+            bank.saveToFile("bank_data.txt");
+            break;
+        case 11:
             bank.loadFromFile("bank_data.txt");
             break;
         case 0:
