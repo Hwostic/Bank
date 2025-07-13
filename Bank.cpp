@@ -75,10 +75,10 @@ int main()
             bank.findClientAccounts();
             break;
         case 10:
-            bank.saveToFile("bank_data.txt");
+            bank.saveToFile("bank_clients.txt");
             break;
         case 11:
-            bank.loadFromFile("bank_data.txt");
+            bank.loadFromFile("bank_clients.txt");
             break;
         case 0:
             cout << "Выход из программы.\n";
